@@ -1,0 +1,68 @@
+<h2>Записаться</h2>
+<p>На этой странице вы сможете записаться к нам в Barber Shop</p>
+
+<form action="/visit" method="POST" role="form">
+
+  <div class="form-group">
+    <label>Ваше имя</label>
+    <input name="username" type="text" class="form-control" placeholder="Ваше имя" value="<%= @username %>"> 
+  </div>
+
+  <div class="form-group">
+    <label>Ваш телефон</label>
+    <input name="phone" type="phone" class="form-control" placeholder="+1 234 567 8901" value="<%= @phone %>">
+  </div>
+
+
+  <div class="form-group">
+    <label>Выберите дату</label>
+    <input name="datetime" type="date" class="form-control" placeholder="Введите дату и время" value="<%= @datetime %>">
+  </div>
+
+
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Выберите барбера</label>
+    <select class="form-control" id="exampleFormControlSelect1" type="date" name="barber">
+      <option>Walt</option>
+      <option>Jessie</option>
+      <option>Gus</option>
+      <option>Any barber</option>
+    </select>
+    <div class="form-helper">Или выберите Any barber</div>
+
+  </div>
+
+<div class="form-group">
+    <label>Выберите дату</label>
+  <select id="color" name="color">
+    <option value="#7bd148">Green</option>
+    <option value="#5484ed">Bold blue</option>
+    <option value="#a4bdfc">Blue</option>
+    <option value="#46d6db">Turquoise</option>
+    <option value="#e1e1e1">Gray</option>
+  </select>
+</div>
+
+
+
+  <button type="submit" class="btn btn-primary">Записаться</button>
+
+</form>
+
+
+<script type="text/javascript">
+//alert ('hello from visit page') tak pisat menee pravilno chem v stroke 58. etot skript ispolnitsya posle zafruzke stranitsy
+//$('#color').simplecolorpicker();
+</script>
+
+
+
+<script type="text/javascript">
+
+$(function() {
+
+  $('#color').simplecolorpicker();
+
+})
+
+</script>
