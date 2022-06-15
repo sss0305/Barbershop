@@ -20,13 +20,15 @@
   </div>
 
 
+
+
 <div class="form-group">
     <label for="exampleFormControlSelect1">Выберите барбера</label>
-    <select class="form-control" id="exampleFormControlSelect1" type="date" name="barber">
-      <option>Walt</option>
-      <option>Jessie</option>
-      <option>Gus</option>
-      <option>Any barber</option>
+    <select class="form-control" name="barber" #id="exampleFormControlSelect1" type="text">
+      <option> Any barber</option>
+      <option <%= @barber == 'Walt' ? 'selected' : '' %>>Walt</option>
+      <option <%= @barber == 'Jessie' ? 'selected' : '' %>>Jessie</option>
+      <option <%= @barber == 'Gus' ? 'selected' : '' %>>Gus</option>
     </select>
     <div class="form-helper">Или выберите Any barber</div>
 
