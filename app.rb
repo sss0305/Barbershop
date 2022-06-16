@@ -3,15 +3,16 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+
 configure do
-        @db = SQLite3::Database.new 'barbershop.db'
-        @db.execute 'CREATE TABLE IF NOT EXISTS
+        db = get_db
+        db.execute 'CREATE TABLE IF NOT EXISTS
         "Users"
         (
         "id" INTEGER PRIMARY KEY AUTOINCREMENT,
         "username" TEXT,
         "phone" TEXT,
-        "datestamp" TEXT
+        "datestamp" TEXT,
         "barber" TEXT,
         "color" TEXT
         )'
@@ -61,15 +62,22 @@ post '/visit' do
 
 		@error = hh.select {|key,_| params[key] == ""}.values.join(", ")
 
-			if @error != ''
-				return erb :visit
-			end
+		if @error != ''
+			return erb :visit
+		end
+
+
+        db = get_db
+        db.execute 'insert into Users
+        (username, phone, datestamp, barber, color)
+        values (?,?,?,?,?)', [@username, @phone, @datestamp, @barber, @color]
 
 
         @title = 'Thanks'
-        @message = "Dear, #{@username}, barber #{@barber} will be waiting for you at #{@datetime}. color: #{@color}"
+        @message = "Dear, #{@username}, barber #{@barber} will be waiting for you at #{@datestamp}. color: #{@color}"
+        
         @f = File.open './public/users.txt', 'a'
-        @f.write "User: #{@username}, phone: #{@phone}, date and time: #{@datetime}, barber: #{@barber}, color: #{@color}\n"
+        @f.write "User: #{@username}, phone: #{@phone}, date and time: #{@datestamp}, barber: #{@barber}, color: #{@color}\n"
         @f.close
 
         erb :message
@@ -152,4 +160,9 @@ post '/admin' do
         @message = 'access denied'
 
     end
+end
+
+
+def get_db
+        return SQLite3::Database.new 'barbershop.db'
 end
