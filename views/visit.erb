@@ -1,6 +1,18 @@
 <h2>Записаться</h2>
 <p>На этой странице вы сможете записаться к нам в Barber Shop</p>
 
+
+<script type="text/javascript">
+
+$(function() {
+
+  $('#color').simplecolorpicker();
+  jQuery('#datetimepicker').datetimepicker();
+})
+
+</script>
+
+
 <form action="/visit" method="POST" role="form">
 
   <div class="form-group">
@@ -16,7 +28,7 @@
 
   <div class="form-group">
     <label>Выберите дату</label>
-    <input name="datestamp" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datestamp %>">
+    <input id="datetimepicker" name="datestamp" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datestamp %>" >
   </div>
 
 
@@ -55,16 +67,10 @@
 <script type="text/javascript">
 //alert ('hello from visit page') tak pisat menee pravilno chem v stroke 58. etot skript ispolnitsya posle zafruzke stranitsy
 //$('#color').simplecolorpicker();
+jQuery('#datetimepicker').datetimepicker();
 </script>
 
 
 
-<script type="text/javascript">
 
-$(function() {
 
-  $('#color').simplecolorpicker();
-
-})
-
-</script>
