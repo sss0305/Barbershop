@@ -7,6 +7,9 @@
 $(function() {
 
   $('#color').simplecolorpicker();
+  $('#datetimepicker2').datetimepicker({ daysOfWeekDisabled: [0, 6],
+  sideBySide: true, locale: 'ru'
+  }); 
 })
 
 </script>
@@ -21,7 +24,7 @@ $(function() {
 <script type="text/javascript">
   $(function () {
     // идентификатор элемента (например: #datetimepicker1), для которого необходимо инициализировать виджет Bootstrap DateTimePicker
-    $('#datetimepicker2').datetimepicker({ daysOfWeekDisabled: [0, 6]});
+    
 
   });
 </script>
