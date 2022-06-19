@@ -7,7 +7,6 @@
 $(function() {
 
   $('#color').simplecolorpicker();
-  jQuery('#datetimepicker').datetimepicker();
 })
 
 </script>
@@ -28,7 +27,7 @@ $(function() {
 
   <div class="form-group">
     <label>Выберите дату</label>
-    <input id="datetimepicker" name="datestamp" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datestamp %>" >
+    <input name="datestamp" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datestamp %>" >
   </div>
 
 
@@ -36,14 +35,14 @@ $(function() {
 
 <div class="form-group">
     <label for="exampleFormControlSelect1">Выберите барбера</label>
+    <div class="form-helper">Или оставьте Any barber</div>
+
     <select class="form-control" name="barber" #id="exampleFormControlSelect1" type="text">
       <option> Any barber</option>
       <option <%= @barber == 'Walt' ? 'selected' : '' %>>Walt</option>
       <option <%= @barber == 'Jessie' ? 'selected' : '' %>>Jessie</option>
       <option <%= @barber == 'Gus' ? 'selected' : '' %>>Gus</option>
     </select>
-    <div class="form-helper">Или выберите Any barber</div>
-
   </div>
 
 <div class="form-group">
@@ -65,9 +64,6 @@ $(function() {
 
 
 <script type="text/javascript">
-//alert ('hello from visit page') tak pisat menee pravilno chem v stroke 58. etot skript ispolnitsya posle zafruzke stranitsy
-//$('#color').simplecolorpicker();
-jQuery('#datetimepicker').datetimepicker();
 </script>
 
 
