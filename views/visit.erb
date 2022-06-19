@@ -11,6 +11,21 @@ $(function() {
 
 </script>
 
+<script type="text/javascript">
+  $(function () {
+    // идентификатор элемента (например: #datetimepicker1), для которого необходимо инициализировать виджет Bootstrap DateTimePicker
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    // идентификатор элемента (например: #datetimepicker1), для которого необходимо инициализировать виджет Bootstrap DateTimePicker
+    $('#datetimepicker2').datetimepicker({ daysOfWeekDisabled: [0, 6]});
+
+  });
+</script>
+
 
 <form action="/visit" method="POST" role="form">
 
@@ -25,10 +40,22 @@ $(function() {
   </div>
 
 
+  <!-- <div class="form-group">
+    <label for="inputDate">Выберите дату</label>
+    <input name="datestamp" type="text" class="form-control" id="datetimepicker1" class="form-control" value="<%= @datestamp %>" >
+  </div> -->
+
   <div class="form-group">
-    <label>Выберите дату</label>
-    <input name="datestamp" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @datestamp %>" >
+  <label for="inputDate">Выберите дату</label>
+
+  <!-- элемент input с id = datetimepicker2 -->
+  <div class="input-group" id="datetimepicker2">
+    <input name="datestamp" type="text" class="form-control" value="<%= @datestamp %>"/>
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
   </div>
+</div>
 
 
 
