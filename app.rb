@@ -24,6 +24,12 @@ def get_db
         return @db
 end
 
+before do
+        db = get_db
+        @barbers = db.execute 'select * from barbers' 
+end
+
+
 configure do
         db = get_db
         db.execute 'CREATE TABLE IF NOT EXISTS
@@ -59,7 +65,6 @@ end
 
 get '/visit' do
 	erb :visit
-
 end
 
 get '/contacts' do
@@ -88,15 +93,16 @@ post '/visit' do
         @barber = params[:barber]
         @color = params[:color]
 
-        hh = {  :username => 'Введите ваше имя',
-        		:phone => 'Введите ваш телефон',
-        		:datestamp => 'Выберите дату'
-        		 }
+        hh = {  
+                :username => 'Введите ваше имя',
+        	:phone => 'Введите ваш телефон',
+        	:datestamp => 'Выберите дату стрижки'
+        }
 
         #Выводит ошибка валидации но только одну, внизу улучшение кода
         #hh.each do |key, value|
         #	if params[key] == ''
-        #		@error = hh[key]
+        #	 	@error = hh[key]
         #		return erb :visit
         #	end
         #end
