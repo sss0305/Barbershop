@@ -163,7 +163,13 @@ post '/admin' do
         @title = "Thanks"
        	@message = "Hi, #{@login}, you are loggen in"
 
-        @file = File.open("./public/users.txt","r")
+        get_db
+        @results = @db.execute 'SELECT * FROM Users ORDER BY id DESC' 
+        @db.close
+
+        erb :showusers
+
+        #@file = File.open("./public/users.txt","r")
                 #erb :welcome_a
 
         #elsif @login == 'admin' and @password == 'admin'
