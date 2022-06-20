@@ -59,7 +59,7 @@ get '/' do
 end
 
 get '/about' do
-	@error = 'smth wrong'
+	@error = 'smth wronggg'
 	erb :about
 end
 
