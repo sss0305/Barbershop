@@ -22,9 +22,7 @@
 
 		<!-- 6. Подключить js-файл библиотеки Bootstrap 3 DateTimePicker -->
 		<script src="bootstrap-datetimepicker.min.js"></script>
-
-
-
+--
 
 		<script src="jquery.simplecolorpicker.js"></script>
 
@@ -63,7 +61,7 @@
 			</nav>
 
 			<div>
-			      <%if @error then %>
+			      <%if @error && @error.length > 0 then %>
 			          <div class="alert alert-danger"><%=@error%></div>
 			      <% end %>
 			      <%= yield %>
