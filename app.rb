@@ -6,7 +6,9 @@ require 'sqlite3'
 
 
 def get_db
-        return SQLite3::Database.new 'barbershop.db'
+        @db = SQLite3::Database.new 'barbershop.db'
+        @db.results_as_hash = true
+        return @db
 end
 
 configure do
@@ -44,6 +46,17 @@ end
 get '/admin' do
 	erb :admin
 end
+
+get '/showusers' do
+        get_db
+
+        @results = @db.execute 'SELECT * FROM Users ORDER BY id DESC' 
+        @db.close
+
+        erb :showusers
+end
+
+
 
 post '/visit' do
         @username = params[:username]
@@ -141,6 +154,7 @@ require 'pony'
 end
 
 post '/admin' do
+
     @login = params[:login]
     @password = params[:password]
     @title = params[:title]
