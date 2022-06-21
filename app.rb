@@ -121,7 +121,7 @@ post '/visit' do
 
 
         @title = 'Thanks'
-        @message = "Dear, #{@username}, barber #{@barber} will be waiting for you at #{@datestamp}. color: #{@color}"
+        @message = "Dear, #{@username}, barber #{@barber} will be waiting for you at #{@datestamp}. Color: #{@color}. Please arrive at #{@datestamp}."
         
         @f = File.open './public/users.txt', 'a'
         @f.write "User: #{@username}, phone: #{@phone}, date and time: #{@datestamp}, barber: #{@barber}, color: #{@color}\n"
